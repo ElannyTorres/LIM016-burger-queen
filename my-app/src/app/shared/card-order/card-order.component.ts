@@ -1,7 +1,7 @@
 import { Router } from '@angular/router';
 import { Component, OnInit, Input } from '@angular/core';
-import { DataService } from '../../services/data.service';
 import { FirestoreService } from '../../services/firestore.service';
+import { UserService } from 'src/app/services/user.service';
 
 
 @Component({
@@ -23,13 +23,12 @@ export class CardOrderComponent implements OnInit {
 
 
 
-  constructor(private dataService: DataService, private firestoreService: FirestoreService, private router: Router) { }
+  constructor(private userService: UserService, private firestoreService: FirestoreService, private router: Router) { }
 
   ngOnInit(): void {
-    this.dataUser = this.dataService.disparador.getValue();
-    this.roleWaiter = this.dataUser.rol == 'waiter' ? true : false;
-    this.roleChef = this.dataUser.rol == 'chef' ? true : false;
-    console.log("hola");
+    this.dataUser=this.userService.getUserLoggedIn();
+    this.roleWaiter = this.dataUser.role == 'waiter' ? true : false;
+    this.roleChef = this.dataUser.role == 'chef' ? true : false;
 
     if(this.roleChef == true) {
       setTimeout(() => {this.showTime()}, 1);

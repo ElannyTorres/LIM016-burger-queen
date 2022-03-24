@@ -139,26 +139,5 @@
                     "tipo":"adicional",
                     "menu":["Promociones","Personal"]
                 }
-    ],
-    "users": [
-        {
-            "id":"u01",
-            "name":"Luz",
-            "rol":"chef",
-            "email":"chef@makisqueen.com"
-        },
-        {
-            "id":"u02",
-            "name":"Pili",
-            "rol":"waiter",
-            "email":"waiter@makisqueen.com"
-        },
-        {
-          "id":"u03",
-          "name":"Jeane",
-          "rol":"waiter",
-          "email":"jeane@makisqueen.com"
-      }
     ]
-
 }

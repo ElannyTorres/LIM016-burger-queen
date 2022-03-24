@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { faCrown, faUserGroup } from '@fortawesome/free-solid-svg-icons';
 import { AuthService } from '../../services/auth.service';
+import { FirestoreService } from '../../services/firestore.service';
 import { DataService } from '../../services/data.service';
 import { Router } from '@angular/router';
+import { UserService }from '../../services/user.service'
 
 @Component({
   selector: 'app-login',
@@ -10,61 +12,65 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+  public listUsers: any[] = [];
   faCrow = faCrown;
   faUser = faUserGroup;
 
-  public user = {
-    email:'',
-    password: '',
-    name: '',
-    role: '',
-    id: ''
+  
+   loginForm = {
+    email:  '',
+    password: ''
   }
 
-  Login(){
-    const {email,password} = this.user;
-    this.authService.login(email,password).then(res =>{
-      //* Colección de usuarios
-      //! capturar el id
-      console.log(res?.user?.uid);
-      //! Guardar en localstorage
-    });
-    this.Role();
+  public user = {
+    id: '',
+    email:'',
+    name: '',
+    role: '',
+  
   }
 
   constructor(
     private authService: AuthService,
     private dataService : DataService,
+    private fireStoreService : FirestoreService,
+    private userService: UserService,
     private router: Router) {}
 
   ngOnInit(): void {
   }
 
-  /* Role() [
-    //! entrar al FB
-    //! Buscar en a colección user el uid
-    //! Igualar roles
+  Login(){
+   const {email,password} = this.loginForm;
+    this.authService.login(email,password).then(res =>{
+      //* Peticion Colección de usuarios
+      //! capturar el id
+      console.log(res?.user?.uid);
+      this.fireStoreService.getUsers(res?.user?.uid).subscribe(data => {
+        this.user ={
+          id: data.id,
+          email: data.get('email'),
+          name: data.get('name'),
+          role: data.get('role'),
+        }
+        this.userService.setUserLoggedIn(this.user);
+      });
+      this.Role();
+    });    
+  }
 
-  ] */
+  
 
   Role() {
-    this.dataService.getJSON().subscribe(data=>{
-      const userLog = this.authService.getUserLogged();
-      userLog.subscribe((res: any) => {
-        const userEmail = res.email;
-        const usersData = data.users;
-        //console.log(userEmail);
-        const find = usersData.filter((x: any) => x.email == userEmail)
-        const role = find[0].rol;
-        //console.log(role);
-        if(role === 'chef') {
+    console.log(this.userService.getUserLoggedIn());
+    const objUser = this.userService.getUserLoggedIn();
+    console.log(objUser.role);
+    if(objUser.role === 'chef') {
           this.router.navigateByUrl("/chef");
-        } else if (role === 'waiter') {
+    } else if (objUser.role === 'waiter') {
           this.router.navigateByUrl("/waiter")
-        };
-        this.dataService.disparador.next(find[0]);
-      });
-    })
+    }
+    
   }
 
 }

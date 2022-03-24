@@ -1,7 +1,7 @@
 import { createNgModuleType } from '@angular/compiler/src/render3/r3_module_compiler';
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../../services/data.service'
 import { FirestoreService } from '../../services/firestore.service';
+
 
 @Component({
   selector: 'app-order-status',
@@ -22,16 +22,9 @@ export class OrderStatusComponent implements OnInit {
 
   id:string = '';
 
-  constructor(private dataService: DataService, private firestoreService: FirestoreService ) {
-
-  }
+  constructor(private firestoreService: FirestoreService ) {}
 
   ngOnInit(): void {
-    this.dataUser = this.dataService.disparador.getValue();
-    // console.log("este es el usuario en order-place: ", this.dataUser);
-    this.roleWaiter = this.dataUser.rol == 'waiter' ? true : false;
-    this.roleChef = this.dataUser.rol == 'chef' ? true : false;
-
     this.getOrder();
 
   }

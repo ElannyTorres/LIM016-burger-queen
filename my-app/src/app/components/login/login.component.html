@@ -5,11 +5,12 @@
         <div class="container">
                 <div class="form-login">
                     <h4 class="fontGermania">Makis Queen<fa-icon [icon]="faCrow" id="iconCrown"></fa-icon></h4>
-                    <input type="email" id="userName" class="form-control input-sm chat-input" placeholder="username" [(ngModel)]="user.email"/>
-                    <input type="password" id="userPassword" class="form-control input-sm chat-input" placeholder="password" [(ngModel)]="user.password" />
+                    <input type="email" id="userName" class="form-control input-sm chat-input" placeholder="username" [(ngModel)]="loginForm.email"/>
+                    <input type="password" id="userPassword" class="form-control input-sm chat-input" placeholder="password" [(ngModel)]="loginForm.password" />
                     <div class="wrapper">
                     <span class="group-btn">
                         <button type="button" class="btn btn-primary" (click)="Login()">Login</button>
+                        <!-- <button  (click)="Role()">Role</button> -->
                     </span>
                     </div>
                 </div>

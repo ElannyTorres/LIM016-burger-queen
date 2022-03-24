@@ -36,5 +36,28 @@ export class FirestoreService {
       readyTime: readyTime,
     })
   }
+
+  
+  // getUsers() {
+  //   return this.firestore.collection('users').snapshotChanges();
+  // }
+
+  getUsers(id:any) {
+    return this.firestore.collection('users').doc(id).get();
+  }
+
+  // async function getUserByEmail(email:string) {
+  //   // Make the initial query
+  //   const query = await firestore.collection('users').where('email', '==', email).get();
+  
+  //    if (!query.empty) {
+  //     const snapshot = query.docs[0];
+  //     const data = snapshot.data();
+  //   } else {
+  //     // not found
+  //   }
+  
+  // }
+  
 }
 
