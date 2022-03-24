@@ -1,7 +1,22 @@
 .order-container {
+  display: grid;
+  grid-template-columns: 15rem 1fr;
+  align-items: stretch;
   margin: 1rem;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  
+  flex-wrap: wrap;  
 }
+.card{
+  margin: 1rem;
+  grid-column: 1 / 2;
+
+}
+.cardsOrders{
+  grid-column: 2 / 3;
+}
+
+.optionsOrderStatusContainer{
+  display: flex;
+  flex-direction: column;
+
+}
+
