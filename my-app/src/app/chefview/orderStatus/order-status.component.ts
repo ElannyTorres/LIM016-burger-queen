@@ -11,6 +11,7 @@ import { FirestoreService } from '../../services/firestore.service';
 export class OrderStatusComponent implements OnInit {
   public listOrders: any[] = [];
   public dataUser: any;
+  public listOrdersDelivered: any[] =[];
   roleChef: boolean = false;
   roleWaiter: boolean = false;
 
@@ -53,6 +54,19 @@ export class OrderStatusComponent implements OnInit {
       }
     })
     //console.log(arr)
+  }
+
+  filterDelivered(){
+    //?El array con todas las ordenes
+    // console.log(this.listOrders);
+    // console.log(this.listOrders[0].data.status);
+    
+    //? filtrar las ordenes de solo estado 'delivered'
+    this.listOrdersDelivered = this.listOrders.filter(item => item.data.status == 'Delivered');
+    console.log(this.listOrdersDelivered);
+    this.listOrders = this.listOrdersDelivered;
+    
+    
   }
 
 }

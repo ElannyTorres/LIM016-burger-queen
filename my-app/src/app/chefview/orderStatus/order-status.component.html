@@ -1,12 +1,10 @@
 <div class="order-container">
   <div class="card">
-    <div class="card-body optionsOrderStatusContainer">
-      
-        <button>All Orders</button>
-        <button>Orders Ready</button>
-        <button>Delivered</button>
-      
-    </div>
+    <ul class="list-group list-group-flush optionsOrderStatusContainer">
+      <li class="list-group-item"><button (click)="getOrder()">All Orders</button></li>
+      <li class="list-group-item"><button>Orders Ready</button></li>
+      <li class="list-group-item"><button (click)="filterDelivered()">Delivered</button></li>
+    </ul>
   </div>
   <div class="col-md-12 justify-content-between  d-flex flex-wrap mx-auto cardsOrders">
     <app-card-order [orders]="order" *ngFor="let order of listOrders" class="m-sm-3 mx-auto"></app-card-order>

@@ -38,7 +38,7 @@
         </tbody>
       </table>
       <div *ngIf="roleWaiter" class="containerDelivered">
-        <button class="btnDelivered">Delivered</button>
+        <button *ngIf="orders.data.status == 'Ready'"(click)="delivered()" class="btnDelivered">Delivered</button>
       </div>
 
     </div>

@@ -57,9 +57,7 @@ export class CardOrderComponent implements OnInit {
 
   background(){
     const p = document.getElementById(this.orders.id);
-    console.log(p);
     let pText = <HTMLElement> document.getElementById(this.orders.id);
-    console.log(pText.innerText);
     // const pStyle = document.querySelector<HTMLElement>('p');
     if(p !== null && p != null){
       if(p.innerHTML == 'Accepted') {
@@ -108,6 +106,10 @@ export class CardOrderComponent implements OnInit {
 
   stop(): void{
     clearInterval(this.timeInterval);
+  }
+
+  delivered(){
+    this.firestoreService.updateStatusDelivered(this.orders.id,'Delivered');
   }
 
 }
