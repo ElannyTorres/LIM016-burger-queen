@@ -1,9 +1,25 @@
 <div class="order-container">
-  <div class="card">
-    <ul class="list-group list-group-flush optionsOrderStatusContainer">
-      <li class="list-group-item"><button (click)="getOrder()">All Orders</button></li>
-      <li class="list-group-item"><button>Orders Ready</button></li>
-      <li class="list-group-item"><button (click)="filterDelivered()">Delivered</button></li>
+  
+  <div class="cardOptions">
+    <ul class="list-group optionsOrderStatusContainer">
+      <li class="list-group-item">
+        <button (click)="getOrder()">
+          <fa-icon [icon]="faAllOrders"></fa-icon>
+          <p>All Orders</p>
+        </button>
+      </li>
+      <li class="list-group-item">
+        <button>
+          <fa-icon [icon]="faOrdersReady"></fa-icon>
+          <p>Orders Ready</p>
+        </button>
+      </li>
+      <li class="list-group-item">
+        <button (click)="filterDelivered()">
+          <fa-icon [icon]="faOrdersDelivered"></fa-icon>
+          <p>Delivered</p>
+        </button>
+      </li>
     </ul>
   </div>
   <div class="col-md-12 justify-content-between  d-flex flex-wrap mx-auto cardsOrders">

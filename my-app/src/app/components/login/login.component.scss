@@ -64,3 +64,9 @@ h4 {
   border-color: var(--GreenStrong);
   width: 8rem;
 }
+
+@media (min-width: 1025px) { 
+  .form-login{
+    width: 32rem;
+  }
+ }

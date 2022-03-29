@@ -1,5 +1,6 @@
 import { createNgModuleType } from '@angular/compiler/src/render3/r3_module_compiler';
 import { Component, OnInit } from '@angular/core';
+import { faAddressBook, faCheckCircle, faClock, faMemory, faNotEqual, faNotesMedical, faNoteSticky, faThList, faTruck, faUserClock } from '@fortawesome/free-solid-svg-icons';
 import { FirestoreService } from '../../services/firestore.service';
 
 
@@ -22,6 +23,10 @@ export class OrderStatusComponent implements OnInit {
   timeInterval:any;
 
   id:string = '';
+
+  faAllOrders = faThList;
+  faOrdersReady = faUserClock;
+  faOrdersDelivered = faCheckCircle;
 
   constructor(private firestoreService: FirestoreService ) {}
 
@@ -63,7 +68,7 @@ export class OrderStatusComponent implements OnInit {
     
     //? filtrar las ordenes de solo estado 'delivered'
     this.listOrdersDelivered = this.listOrders.filter(item => item.data.status == 'Delivered');
-    console.log(this.listOrdersDelivered);
+    // console.log(this.listOrdersDelivered);
     this.listOrders = this.listOrdersDelivered;
     
     

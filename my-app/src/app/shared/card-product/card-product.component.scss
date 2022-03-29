@@ -1,9 +1,11 @@
 .card {
-  width: 18rem;
+  width: 10rem;
 }
 .btn {
   background-color: var(--GreenStrong);
   color: var(--White);
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
 }
 
 .card-body {
@@ -18,11 +20,29 @@
   height: 10rem;
   object-fit: cover;
 }
-
-@media (min-width: 1024px) {
-  .card {
-    width: 13rem;
-    /* height: 6rem;
-    object-fit: cover; */
-  }
+.card-title{
+  font-size: 1rem;
 }
+
+@media (min-width: 1025px) { 
+  .card {
+    width: 18rem;
+  }
+
+  .card-title{
+    font-size: 1.5rem;
+  }
+
+  .btn {
+    
+    font-size: 1rem;
+  }
+
+  .card-img-top {
+    height: 11rem;
+    
+  }
+  .card-text{
+    font-size: 1rem;
+  }
+ }

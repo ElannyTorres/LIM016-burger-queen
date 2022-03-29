@@ -17,7 +17,7 @@
       </ul>
     </div>
     <div class="card-body">
-      <select id="{{orders.id}}" class="form-select form-select-sm" *ngIf="roleChef" (change)="orderStatus($event)" value={{orders.data.status}}>
+      <select id="{{orders.id}}" class="form-select form-select-sm" *ngIf="(roleChef) && (orders.data.status == 'Ready' || orders.data.status == 'Accepted' || orders.data.status == 'New')" (change)="orderStatus($event)" value={{orders.data.status}}>
         <option value="New">New</option>
         <option value="Accepted">Accepted</option>
         <option value="Ready">Ready</option>

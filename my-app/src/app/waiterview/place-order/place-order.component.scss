@@ -1,5 +1,6 @@
-.card {
-  margin: 2rem;
+.containerOrderDetails {
+  margin: 1.5rem;
+  width: 20rem;
 }
 
 .tittleOrderDetails {
@@ -30,6 +31,7 @@
 }
 
 .btn-primary {
+  margin-top: 1rem;
   background-color: var(--GreenStrong);
   border-color: var(--GreenStrong);
 }
@@ -54,5 +56,33 @@
 p {
   margin-top: 0;
   margin-bottom: 0;
-  padding: 0.5rem;
+  padding-top:1rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  
+}
+td {
+  padding-top: 1.2rem;
+}
+
+@media (min-width: 1025px) { 
+  .containerOrderDetails {
+    margin: 2.5rem;
+    width: 24rem;
+    
+  }
+  .card-body {
+    align-items: center;
+  }
+  .btn-primary{
+    margin-top:1rem;
+  }
+  p {
+   
+    margin-top: 1rem;
+  }
+  td {
+    padding-top: 1.8rem;
+  }
+
 }

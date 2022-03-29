@@ -36,3 +36,14 @@
   background-color: #e1e0e0a1;
   color: #6c6a6a;
 }
+
+#containerProductList{
+  height: 25rem;
+  overflow: scroll;
+}
+
+@media (min-width: 1025px) { 
+  #containerProductList{
+    height: 32rem;
+  }
+ }

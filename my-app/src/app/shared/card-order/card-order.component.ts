@@ -51,7 +51,7 @@ export class CardOrderComponent implements OnInit {
         console.log("este select está listo");
         console.log(this.orders.data.readyTime);
         this.time = this.orders.data.readyTime;
-      }
+      } 
     }
   }
 
@@ -71,12 +71,12 @@ export class CardOrderComponent implements OnInit {
   orderStatus($event: any){
     console.log($event.target.value);
     if($event.target.value == 'Accepted'){
-      console.log("Accepted the select");
+      // console.log("Accepted the select");
       this.startTime = Date.now();
       this.firestoreService.updateStatus(this.orders.id, $event.target.value, this.startTime);
     } else if ($event.target.value == 'Ready'){
       //! Bloquear el select
-      console.log("pausando");
+      // console.log("pausando");
       this.stop();
       this.firestoreService.updateStatus(this.orders.id, $event.target.value, this.startTime);
       this.firestoreService.sendReadyTime(this.orders.id, this.time);

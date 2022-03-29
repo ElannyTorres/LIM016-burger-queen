@@ -5,24 +5,52 @@
   margin: 1rem;
   flex-wrap: wrap;  
 }
-.card{
-  margin: 1rem;
+.cardOptions{
+  margin: 1.5rem;
   grid-column: 1 / 2;
 
 }
 .cardsOrders{
   grid-column: 2 / 3;
+  height:30rem;
+  overflow: scroll;
 }
 
 .optionsOrderStatusContainer{
   display: flex;
   flex-direction: column;
-
 }
 
 button {
   border: none;
   background: none;
-  color: var(--GreenStrong);
+  color: var(--White);
 }
 
+.list-group-item{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--Salmon);
+  padding: 0rem;
+  
+}
+
+fa-icon{
+  color: var(--White);
+  font-size: 2rem;
+}
+
+button {
+  padding: 2rem 3rem;
+}
+
+@media (min-width: 1025px) { 
+  fa-icon{
+    color: var(--White);
+    font-size: 3.5rem;
+  }
+  .cardsOrders{
+    height:40rem;
+  }
+ }
